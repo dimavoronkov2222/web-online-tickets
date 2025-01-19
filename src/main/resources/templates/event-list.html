@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event List</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <h1>Event List</h1>
+</header>
+<section>
+    <table>
+        <thead>
+        <tr>
+            <th>Event Name</th>
+            <th>Event Date</th>
+            <th>Place</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="event : ${events}">
+            <td th:text="${event.name}"></td>
+            <td th:text="${event.eventDate}"></td>
+            <td th:text="${event.place.name}"></td>
+            <td>
+                <a href="#" th:href="@{/event/{id}(id=${event.id})}">View Details</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<footer>
+    <p>&copy; 2025 Event Management</p>
+</footer>
+</body>
+</html>

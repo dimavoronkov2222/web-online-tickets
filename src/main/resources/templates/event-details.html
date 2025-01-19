@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <h1>Event Details</h1>
+</header>
+<section>
+    <h2 th:text="${event.name}"></h2>
+    <p><strong>Date:</strong> <span th:text="${event.eventDate}"></span></p>
+    <p><strong>Place:</strong> <span th:text="${event.place.name}"></span></p>
+    <p><strong>Address:</strong> <span th:text="${event.place.address}"></span></p>
+    <h3>Tickets:</h3>
+    <ul>
+        <li th:each="ticket : ${event.tickets}">
+            <span th:text="${ticket.number}"></span> - <span th:text="${ticket.status}"></span>
+        </li>
+    </ul>
+</section>
+<footer>
+    <p>&copy; 2025 Event Management</p>
+</footer>
+</body>
+</html>

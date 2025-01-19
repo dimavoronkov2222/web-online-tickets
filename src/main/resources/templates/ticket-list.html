@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <h1>Tickets</h1>
+</header>
+<section>
+    <table>
+        <thead>
+        <tr>
+            <th>Ticket Number</th>
+            <th>Customer</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="ticket : ${tickets}">
+            <td th:text="${ticket.number}"></td>
+            <td th:text="${ticket.customer.name}"></td>
+            <td th:text="${ticket.status}"></td>
+            <td>
+                <a href="#" th:href="@{/ticket/{id}(id=${ticket.id})}">View Details</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<footer>
+    <p>&copy; 2025 Event Management</p>
+</footer>
+</body>
+</html>
